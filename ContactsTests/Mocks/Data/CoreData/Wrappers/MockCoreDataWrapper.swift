@@ -3,17 +3,13 @@ import CoreData
 import Foundation
 
 final class MockCoreDataWrapper: CoreDataWrapperProtocol{
-    func getContext() -> NSManagedObjectContext {
-        return container.viewContext
-    }
-    
-    
     var container: NSPersistentContainer!
     var getResult: [NSManagedObject] = []
     var getThrows = false
-    var createGotCalledWith :(NSManagedObject) = (NSManagedObject())
     var saveGotCalled = false
     var saveThrows = false
+    var entityToSave :NSManagedObject!
+    var entityToDelete :NSManagedObject!
     
     init(){
         container = NSPersistentContainer(name: "Contact");
@@ -42,11 +38,26 @@ final class MockCoreDataWrapper: CoreDataWrapperProtocol{
         return getResult
     }
     
-    func save() throws {
+    internal func save() throws {
         if(saveThrows){
             throw CoreDataError.Save
         }
         saveGotCalled = true
+    }
+    
+    func deleteEntity(entity: NSManagedObject) throws{
+        entityToDelete = entity
+        try save()
+    }
+
+    
+    func saveEntity(entity: NSManagedObject) throws {
+        entityToSave = entity
+        try save()
+    }
+    
+    func getContext() -> NSManagedObjectContext {
+        return container.viewContext
     }
     
 }

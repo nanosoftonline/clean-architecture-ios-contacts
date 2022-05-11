@@ -2,8 +2,24 @@ import Foundation
 import CoreData
 
 class CoreDataWrapper : CoreDataWrapperProtocol {
-    func save() throws {
-        try container.viewContext.save()
+    var container: NSPersistentContainer!
+    
+    init(){
+                container = NSPersistentContainer(name: "Contact")
+                container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+                container.loadPersistentStores { storeDescription, error in
+                    if let error = error {
+                        print("Unresolved error \(error)")
+                    }
+                }
+                container.viewContext.automaticallyMergesChangesFromParent = true
+    }
+
+    
+    internal func save() throws {
+        if(container.viewContext.hasChanges){
+            try container.viewContext.save()
+        }
     }
     
     func getContext() -> NSManagedObjectContext {
@@ -29,40 +45,14 @@ class CoreDataWrapper : CoreDataWrapperProtocol {
         return entities
     }
     
-
-    
-    var container: NSPersistentContainer!
-    
-    init(){
-                container = NSPersistentContainer(name: "Contact")
-                container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
-                container.loadPersistentStores { storeDescription, error in
-                    if let error = error {
-                        print("Unresolved error \(error)")
-                    }
-                }
-                container.viewContext.automaticallyMergesChangesFromParent = true
+    func saveEntity(entity: NSManagedObject) throws{
+        try save()
     }
     
-//
-//    func getContext() -> NSManagedObjectContext {
-//        return container.viewContext
-//    }
-//
-//    func save() throws {
-//      try container.viewContext.save()
-//    }
-//
-//    func fetch(_ request: NSFetchRequest<NSFetchRequestResult>) throws -> [Any] {
-//        return try container.viewContext.fetch(request)
-//
-//    }
     
-
-    
-
-    
-
-
+    func deleteEntity(entity: NSManagedObject) throws {
+        entity.prepareForDeletion()
+        try save()
+    }
 
 }

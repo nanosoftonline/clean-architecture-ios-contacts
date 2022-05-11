@@ -1,7 +1,7 @@
 import Foundation
 
 class CoreDataContactDataSource : ContactDataSource {
-
+    
     
     let dbWrapper: CoreDataWrapperProtocol
     
@@ -26,7 +26,7 @@ class CoreDataContactDataSource : ContactDataSource {
     func getOne(id: UUID)  -> Result<ContactResponseModel?, ContactError> {
         do{
             let data = try _getOne(id: id)
-            return .success(ContactResponseModel(id: data.id ?? UUID(), name: data.name ?? ""))
+            return .success(ContactResponseModel(id: data.id!, name: data.name!))
         }catch{
             return .failure(.Get)
         }
@@ -44,58 +44,39 @@ class CoreDataContactDataSource : ContactDataSource {
         }
     }
     
-//    func update(id: UUID, data: ContactRequestModel)  -> Result<Bool, ContactError> {
-//        do{
-//            let data = try _getOne(id: id)
-//            data.name = data.name
-//            try dbWrapper.save()
-//            return .success(true)
-//        }catch{
-//            return .failure(.Update)
-//        }
-//    }
-//
-//    func delete(id: UUID)  -> Result<Bool, ContactError> {
-//        do{
-//            let data = try _getOne(id: id)
-//            data.prepareForDeletion()
-//            try dbWrapper.save()
-//            return .success(true)
-//        }catch{
-//            return .failure(.Delete)
-//        }
-//    }
-//
-//
-//
-//    func getAll()   -> Result<[ContactResponseModel], ContactError> {
-//        do
-//        {
-//            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ContactEntity")
-//            let result = try dbWrapper.fetch(fetchRequest) as! [NSManagedObject]
-//            var data: [ContactResponseModel] = []
-//            for record in result {
-//                data.append(ContactResponseModel(id: record.value(forKey: "id") as! UUID, name: record.value(forKey: "name") as! String))
-//
-//            }
-//            return .success(data)
-//        }catch{
-//            return .failure(.Get)
-//        }
-//    }
-//
     func create(_ contactRequestModel: ContactRequestModel)  -> Result<Bool, ContactError> {
         do{
-
+            
             let newContact = ContactEntity(context: dbWrapper.getContext())
             newContact.id = UUID();
             newContact.name = contactRequestModel.name;
-            try dbWrapper.save()
+            try dbWrapper.saveEntity(entity: newContact)
             return .success(true)
         }catch{
             return .failure(.Create)
         }
-
+        
+    }
+    
+    func delete(id: UUID) -> Result<Bool, ContactError> {
+        do{
+            let data = try _getOne(id: id)
+            try dbWrapper.deleteEntity(entity: data)
+            return .success(true)
+        }catch{
+            return .failure(.Delete)
+        }
+    }
+    
+    func update(id: UUID, data: ContactRequestModel) -> Result<Bool, ContactError> {
+        do{
+            let oldData = try _getOne(id: id)
+            oldData.name = data.name
+            try dbWrapper.saveEntity(entity: oldData)
+            return .success(true)
+        }catch{
+            return .failure(.Update)
+        }
     }
     
     

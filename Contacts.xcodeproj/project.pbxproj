@@ -11,8 +11,8 @@
 		080488BA28133E8E005C697E /* MockCreateContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080488B928133E8E005C697E /* MockCreateContact.swift */; };
 		080488BC281342BB005C697E /* MockUpdateContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080488BB281342BB005C697E /* MockUpdateContact.swift */; };
 		080488BE281342DE005C697E /* MockDeleteContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080488BD281342DE005C697E /* MockDeleteContact.swift */; };
-		080488C0281342F6005C697E /* MockGetContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080488BF281342F6005C697E /* MockGetContact.swift */; };
-		080488C3281344B6005C697E /* ContactEditViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080488C2281344B6005C697E /* ContactEditViewModelTests.swift */; };
+		080488C0281342F6005C697E /* MockGetOneContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080488BF281342F6005C697E /* MockGetOneContact.swift */; };
+		080488C3281344B6005C697E /* ViewModelContactEditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080488C2281344B6005C697E /* ViewModelContactEditTests.swift */; };
 		080488C6281344E5005C697E /* ContactEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080488C5281344E5005C697E /* ContactEditViewModel.swift */; };
 		08093CB72829182E009F8BB3 /* CoreDataContactDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08093CB62829182E009F8BB3 /* CoreDataContactDataSourceTests.swift */; };
 		08093CBA28291C46009F8BB3 /* MockCoreDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08093CB928291C46009F8BB3 /* MockCoreDataWrapper.swift */; };
@@ -33,7 +33,7 @@
 		0809F406282A71C200C03D1A /* CoreDataWrapperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0809F405282A71C200C03D1A /* CoreDataWrapperProtocol.swift */; };
 		0817335228250A7900818193 /* UseCaseContactUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0817335128250A7900818193 /* UseCaseContactUpdateTests.swift */; };
 		0817335428250ACA00818193 /* UpdateContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0817335328250ACA00818193 /* UpdateContact.swift */; };
-		0882E05C280E073700887728 /* ContactNewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0882E05B280E073700887728 /* ContactNewViewModelTests.swift */; };
+		0882E05C280E073700887728 /* ViewModelContactCreateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0882E05B280E073700887728 /* ViewModelContactCreateTests.swift */; };
 		0882E05F280E0D7900887728 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0882E05E280E0D7900887728 /* CustomError.swift */; };
 		0898F513280DEC4E001B32E9 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0898F512280DEC4E001B32E9 /* Swinject */; };
 		08D69B18280DFB1900B8ABA8 /* MockIoCContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D69B17280DFB1900B8ABA8 /* MockIoCContainer.swift */; };
@@ -65,8 +65,8 @@
 		080488B928133E8E005C697E /* MockCreateContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCreateContact.swift; sourceTree = "<group>"; };
 		080488BB281342BB005C697E /* MockUpdateContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUpdateContact.swift; sourceTree = "<group>"; };
 		080488BD281342DE005C697E /* MockDeleteContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDeleteContact.swift; sourceTree = "<group>"; };
-		080488BF281342F6005C697E /* MockGetContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetContact.swift; sourceTree = "<group>"; };
-		080488C2281344B6005C697E /* ContactEditViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEditViewModelTests.swift; sourceTree = "<group>"; };
+		080488BF281342F6005C697E /* MockGetOneContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetOneContact.swift; sourceTree = "<group>"; };
+		080488C2281344B6005C697E /* ViewModelContactEditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelContactEditTests.swift; sourceTree = "<group>"; };
 		080488C5281344E5005C697E /* ContactEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEditViewModel.swift; sourceTree = "<group>"; };
 		08093CB62829182E009F8BB3 /* CoreDataContactDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContactDataSourceTests.swift; sourceTree = "<group>"; };
 		08093CB928291C46009F8BB3 /* MockCoreDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataWrapper.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		0809F405282A71C200C03D1A /* CoreDataWrapperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWrapperProtocol.swift; sourceTree = "<group>"; };
 		0817335128250A7900818193 /* UseCaseContactUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseContactUpdateTests.swift; sourceTree = "<group>"; };
 		0817335328250ACA00818193 /* UpdateContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateContact.swift; sourceTree = "<group>"; };
-		0882E05B280E073700887728 /* ContactNewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNewViewModelTests.swift; sourceTree = "<group>"; };
+		0882E05B280E073700887728 /* ViewModelContactCreateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelContactCreateTests.swift; sourceTree = "<group>"; };
 		0882E05E280E0D7900887728 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		08D4BA732812784200A7A4F7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		08D69B17280DFB1900B8ABA8 /* MockIoCContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIoCContainer.swift; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 				080488B72812E95A005C697E /* MockGetAllContacts.swift */,
 				080488B928133E8E005C697E /* MockCreateContact.swift */,
 				080488BD281342DE005C697E /* MockDeleteContact.swift */,
-				080488BF281342F6005C697E /* MockGetContact.swift */,
+				080488BF281342F6005C697E /* MockGetOneContact.swift */,
 				080488BB281342BB005C697E /* MockUpdateContact.swift */,
 			);
 			path = Contact;
@@ -174,7 +174,7 @@
 		080488C128134492005C697E /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				080488C2281344B6005C697E /* ContactEditViewModelTests.swift */,
+				080488C2281344B6005C697E /* ViewModelContactEditTests.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -513,7 +513,7 @@
 		08E0B409280DF04F00A24637 /* Create */ = {
 			isa = PBXGroup;
 			children = (
-				0882E05B280E073700887728 /* ContactNewViewModelTests.swift */,
+				0882E05B280E073700887728 /* ViewModelContactCreateTests.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -730,10 +730,10 @@
 				080488BA28133E8E005C697E /* MockCreateContact.swift in Sources */,
 				080488BE281342DE005C697E /* MockDeleteContact.swift in Sources */,
 				08F50939281BD8770023F755 /* MockContactRepository.swift in Sources */,
-				0882E05C280E073700887728 /* ContactNewViewModelTests.swift in Sources */,
-				080488C0281342F6005C697E /* MockGetContact.swift in Sources */,
+				0882E05C280E073700887728 /* ViewModelContactCreateTests.swift in Sources */,
+				080488C0281342F6005C697E /* MockGetOneContact.swift in Sources */,
 				08093CB72829182E009F8BB3 /* CoreDataContactDataSourceTests.swift in Sources */,
-				080488C3281344B6005C697E /* ContactEditViewModelTests.swift in Sources */,
+				080488C3281344B6005C697E /* ViewModelContactEditTests.swift in Sources */,
 				08093CBA28291C46009F8BB3 /* MockCoreDataWrapper.swift in Sources */,
 				080488B82812E95A005C697E /* MockGetAllContacts.swift in Sources */,
 				080488BC281342BB005C697E /* MockUpdateContact.swift in Sources */,
