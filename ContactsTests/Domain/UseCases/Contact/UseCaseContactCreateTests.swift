@@ -15,9 +15,9 @@ class UseCaseContactCreateTests: XCTestCase {
     }
     
     func test_repo_createContact_should_be_called() async{
-        mockContactRepository.createContactResult = .success(())
-        _ = await useCase.execute(contact: ContactRequestModel(name: "Paul"))
-        XCTAssertTrue(mockContactRepository.createContactGotCalledWith == ContactRequestModel(name: "Paul"))
+        mockContactRepository.createContactResult = .success(true)
+        let response = await useCase.execute(ContactRequestModel(name: "Paul"))
+        XCTAssertEqual(response, .success(true))
     }
     
 }

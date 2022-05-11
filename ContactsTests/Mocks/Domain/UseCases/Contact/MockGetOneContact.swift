@@ -5,11 +5,11 @@ import Foundation
 
 final class MockGetContact: GetContactUseCaseProtocol{
    
-    var executeResult: Result<ContactResponseModel?, Error>  = .success(ContactResponseModel(id: UUID(), name: "Paul"))
+    var executeResult: Result<ContactResponseModel?, ContactError>  = .success(ContactResponseModel(id: UUID(), name: "Paul"))
     var executeGotCalled  = false;
     var executeGotCalledWith: (UUID)!
     
-    func execute(id: UUID) async -> Result<ContactResponseModel?, Error> {
+    func execute(_ id: UUID) async -> Result<ContactResponseModel?, ContactError> {
         executeGotCalled = true
         return executeResult
     }

@@ -15,7 +15,7 @@ class ContactEditViewModel: ObservableObject{
     
     
     func deleteContact(id: UUID) async{
-        let result = await self.deleteContactUseCase.execute(id: id)
+        let result = await self.deleteContactUseCase.execute(id)
         switch result{
         case .success(_):
             self.errorMessage = ""

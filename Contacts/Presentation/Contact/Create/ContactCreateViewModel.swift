@@ -19,7 +19,7 @@ class ContactCreateViewModel: ObservableObject{
     
     func createContact() async{
         
-        let result = await self.createContactUseCase.execute(contact:ContactRequestModel(name: self.name))
+        let result = await self.createContactUseCase.execute(ContactRequestModel(name: self.name))
         switch result{
         case .success(_):
             self.errorMessage = ""

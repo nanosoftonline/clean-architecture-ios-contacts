@@ -14,11 +14,14 @@ class UseCaseContactUpdateTests: XCTestCase {
         
     }
     
-    func test_repo_updateContact_should_be_called() async{
-        mockContactRepository.updateContactResult = .success(())
+    func test_return_success_on_repo_success() async{
+        mockContactRepository.updateContactResult = .success(true)
         let expectedParams = (UUID(), ContactRequestModel(name: "Paul"))
-        _ = await useCase.execute(id: expectedParams.0, data: expectedParams.1)
+        let response = await useCase.execute(id: expectedParams.0, data: expectedParams.1)
         XCTAssertTrue(mockContactRepository.updateContactGotCalledWith == expectedParams)
+        XCTAssertEqual(response, .success(true))
     }
+    
+
     
 }

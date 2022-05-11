@@ -3,10 +3,10 @@
 import Foundation
 
 final class MockGetAllContacts: GetAllContactsUseCaseProtocol{
-    var executeResult: Result<[ContactResponseModel], Error>  = .success([])
+    var executeResult: Result<[ContactResponseModel], ContactError>  = .success([])
     var executeGotCalled  = false;
     
-    func execute() async -> Result<[ContactResponseModel], Error> {
+    func execute() async -> Result<[ContactResponseModel], ContactError> {
         executeGotCalled = true
         return executeResult
     }

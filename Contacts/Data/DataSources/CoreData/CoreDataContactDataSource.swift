@@ -1,6 +1,6 @@
 import Foundation
 
-class CoreDataContactDataSource : ContactDataSource {
+class CoreDataContactDataSource : ContactDataSourceProtocol {
     
     
     let dbWrapper: CoreDataWrapperProtocol
@@ -23,7 +23,7 @@ class CoreDataContactDataSource : ContactDataSource {
         return result[0]
     }
     
-    func getOne(id: UUID)  -> Result<ContactResponseModel?, ContactError> {
+    func getOne(_ id: UUID)  -> Result<ContactResponseModel?, ContactError> {
         do{
             let data = try _getOne(id: id)
             return .success(ContactResponseModel(id: data.id!, name: data.name!))
@@ -58,7 +58,7 @@ class CoreDataContactDataSource : ContactDataSource {
         
     }
     
-    func delete(id: UUID) -> Result<Bool, ContactError> {
+    func delete(_ id: UUID) -> Result<Bool, ContactError> {
         do{
             let data = try _getOne(id: id)
             try dbWrapper.deleteEntity(entity: data)

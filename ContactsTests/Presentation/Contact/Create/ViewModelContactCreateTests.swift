@@ -15,7 +15,7 @@ class ViewModelContactCreateTests: XCTestCase {
     }
     
     func test_createContact_execute_should_be_called() async{
-        mockCreateContact.executeResult = .success(())
+        mockCreateContact.executeResult = .success(true)
         vm.onNameChange(name: "Paul")
         await vm.createContact()
         XCTAssertTrue(mockCreateContact.executeGotCalled)

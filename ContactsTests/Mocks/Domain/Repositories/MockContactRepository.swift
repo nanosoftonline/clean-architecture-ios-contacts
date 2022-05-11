@@ -2,45 +2,45 @@
 
 import Foundation
 
-final class MockContactRepository: ContactRepository{
+final class MockContactRepository: ContactRepositoryProtocol{
     
-    var getContactsResult: Result<[ContactResponseModel], Error>  = .success([])
+    var getContactsResult: Result<[ContactResponseModel], ContactError>  = .success([])
     var getContactsGotCalled  = false
     
-    var getContactResult: Result<ContactResponseModel?, Error>  = .success(ContactResponseModel(id: UUID(), name: "Some Name"))
+    var getContactResult: Result<ContactResponseModel?, ContactError>  = .success(ContactResponseModel(id: UUID(), name: "Some Name"))
     var getContactGotCalledWith  = (UUID())
     
-    var createContactResult: Result<Void, Error>  = .success(())
+    var createContactResult: Result<Bool, ContactError>  = .success(false)
     var createContactGotCalledWith  = (ContactRequestModel(name: ""))
     
-    var updateContactResult: Result<Void, Error>  = .success(())
+    var updateContactResult: Result<Bool, ContactError>  = .success(false)
     var updateContactGotCalledWith  = (UUID(), ContactRequestModel(name: ""))
     
-    var deleteContactResult: Result<Void, Error>  = .success(())
+    var deleteContactResult: Result<Bool, ContactError>  = .success(false)
     var deleteContactGotCalledWith  = (UUID())
         
         
-    func getContacts() async -> Result<[ContactResponseModel], Error> {
+    func getContacts() async -> Result<[ContactResponseModel], ContactError> {
         getContactsGotCalled = true
         return getContactsResult;
     }
     
-    func getContact(id: UUID) async -> Result<ContactResponseModel?, Error> {
+    func getContact(_ id: UUID) async -> Result<ContactResponseModel?, ContactError> {
         getContactGotCalledWith = (id)
         return getContactResult;
     }
     
-    func deleteContact(id: UUID) async -> Result<Void, Error> {
+    func deleteContact(_ id: UUID) async -> Result<Bool, ContactError> {
         deleteContactGotCalledWith = (id)
         return deleteContactResult;
     }
     
-    func updateContact(id: UUID, data: ContactRequestModel) async -> Result<Void, Error> {
+    func updateContact(id: UUID, data: ContactRequestModel) async -> Result<Bool, ContactError> {
         updateContactGotCalledWith = (id, data)
         return updateContactResult;
     }
     
-    func createContact(data: ContactRequestModel) async -> Result<Void, Error> {
+    func createContact(_ data: ContactRequestModel) async -> Result<Bool, ContactError> {
         createContactGotCalledWith = data
         return createContactResult;
     }

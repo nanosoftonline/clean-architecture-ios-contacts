@@ -38,14 +38,14 @@ class CoreDataContactDataSourceTests: XCTestCase {
         item.name = expectedData.1
         dbWrapper.getResult = [item]
         
-        let response =  ds.getOne(id: UUID())
+        let response =  ds.getOne(UUID())
         
         XCTAssertEqual(response, .success(ContactResponseModel(id: expectedData.0, name: expectedData.1)))
     }
     
     func test_getOne_should_return_failure_on_error() {
         dbWrapper.getThrows = true
-        let response =  ds.getOne(id: UUID())
+        let response =  ds.getOne(UUID())
         XCTAssertEqual(response, .failure(.Get))
     }
     
@@ -78,7 +78,7 @@ class CoreDataContactDataSourceTests: XCTestCase {
         item.name = expectedData.1
         dbWrapper.getResult = [item]
         
-        let response =  ds.delete(id: UUID())
+        let response =  ds.delete(UUID())
         
         XCTAssertTrue(dbWrapper.saveGotCalled)
         XCTAssertEqual(response, .success(true))
@@ -92,7 +92,7 @@ class CoreDataContactDataSourceTests: XCTestCase {
         dbWrapper.getResult = [item]
         dbWrapper.saveThrows = true
         
-        let response =  ds.delete(id: UUID())
+        let response =  ds.delete(UUID())
         
         XCTAssertFalse(dbWrapper.saveGotCalled)
         XCTAssertEqual(response, .failure(.Delete))

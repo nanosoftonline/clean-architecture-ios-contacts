@@ -5,16 +5,16 @@ class CoreDataWrapper : CoreDataWrapperProtocol {
     var container: NSPersistentContainer!
     
     init(){
-                container = NSPersistentContainer(name: "Contact")
-                container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
-                container.loadPersistentStores { storeDescription, error in
-                    if let error = error {
-                        print("Unresolved error \(error)")
-                    }
-                }
-                container.viewContext.automaticallyMergesChangesFromParent = true
+        container = NSPersistentContainer(name: "Contact")
+        container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+        container.loadPersistentStores { storeDescription, error in
+            if let error = error {
+                print("Unresolved error \(error)")
+            }
+        }
+        container.viewContext.automaticallyMergesChangesFromParent = true
     }
-
+    
     
     internal func save() throws {
         if(container.viewContext.hasChanges){
@@ -54,5 +54,5 @@ class CoreDataWrapper : CoreDataWrapperProtocol {
         entity.prepareForDeletion()
         try save()
     }
-
+    
 }

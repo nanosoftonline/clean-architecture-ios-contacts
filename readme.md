@@ -62,13 +62,13 @@ We structure the application in the following way to show intent by file / folde
     │   │       ├── MockUpdateContact.swift
     │   │       ├── MockDeleteContact.swift
     │   │       ├── MockGetAllContacts.swift
-    │   │       └── MockGetOneContact.swift│   
+    │   │       └── MockGetOneContact.swift  
     │   └── Data
     │       ├── DataSources
     │       │   └── MockContactDataSource.swift
     │       └── CoreData
-    │            └── MockCoreDataWrapper.swift
-    │ 
+    │           └── Wrappers
+    │               └── MockCoreDataWrapper.swift
     │── Presentation
     │   └── Contact
     │       ├── Create
@@ -92,3 +92,6 @@ We structure the application in the following way to show intent by file / folde
             └── CoreDataContactDataSourceTests.swift
 
 ```
+
+We have our application and test bundle. We mirror our test bundle on the application bundle.
+

@@ -18,7 +18,7 @@ class ViewModelContactEditTests: XCTestCase {
     }
     
     func test_deleteContact_should_be_called() async{
-        mockDeleteContact.executeResult = .success(())
+        mockDeleteContact.executeResult = .success(true)
         let id = UUID()
         await vm.deleteContact(id: id)
         XCTAssertEqual(vm.errorMessage, "")
@@ -36,7 +36,7 @@ class ViewModelContactEditTests: XCTestCase {
     
     
     func test_updateContact_should_return_called() async{
-        mockUpdateContact.executeResult = .success(())
+        mockUpdateContact.executeResult = .success(true)
         let id = UUID()
         vm.onNameChange(name: "Paul")
         await vm.updateContact(id: id)
