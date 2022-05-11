@@ -1,9 +1,3 @@
-//
-//  Persistence.swift
-//  Contacts
-//
-//  Created by Paul Allies on 2022/04/18.
-//
 
 import CoreData
 
@@ -14,8 +8,9 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newItem = ContactEntity(context: viewContext)
+            newItem.id = UUID();
+            newItem.name = "Some Name"
         }
         do {
             try viewContext.save()
@@ -31,7 +26,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "Contacts")
+        container = NSPersistentContainer(name: "Contact")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
