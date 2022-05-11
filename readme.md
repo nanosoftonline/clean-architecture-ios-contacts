@@ -26,13 +26,13 @@ We structure the application in the following way to show intent by file / folde
     │   ├── Protocols
     │   │   ├── UseCases
     │   │   │   └── Contact
-    │   │   │       ├── CreateContactUseCase.swift
-    │   │   │       ├── UpdateContactUseCase.swift
-    │   │   │       ├── DeleteContactUseCase.swift
-    │   │   │       ├── GetContactUseCase.swift
-    │   │   │       └── GetAllContactsUseCase.swift
+    │   │   │       ├── CreateContactUseCaseProtocol.swift
+    │   │   │       ├── UpdateContactUseCaseProtocol.swift
+    │   │   │       ├── DeleteContactUseCaseProtocol.swift
+    │   │   │       ├── GetContactUseCaseProtocol.swift
+    │   │   │       └── GetAllContactsUseCaseProtocol.swift
     │   │   └── Repositories
-    │   │       └── ContactRepository.swift
+    │   │       └── ContactRepositoryProtocol.swift
     │   ├── Models
     │   │   └── Contact.swift
     │   ├── UseCases
@@ -58,17 +58,18 @@ We structure the application in the following way to show intent by file / folde
     │   │   ├── Repositories
     │   │   │    └── MockContactRepository.swift
     │   │   └── UseCases
-    │   │       ├── MockCreateContact.swift
-    │   │       ├── MockUpdateContact.swift
-    │   │       ├── MockDeleteContact.swift
-    │   │       ├── MockGetAllContacts.swift
-    │   │       └── MockGetOneContact.swift  
+    │   │       └── Contact
+    │   │           ├── MockCreateContact.swift
+    │   │           ├── MockUpdateContact.swift
+    │   │           ├── MockDeleteContact.swift
+    │   │           ├── MockGetAllContacts.swift
+    │   │           └── MockGetOneContact.swift  
     │   └── Data
-    │       ├── DataSources
-    │       │   └── MockContactDataSource.swift
-    │       └── CoreData
-    │           └── Wrappers
-    │               └── MockCoreDataWrapper.swift
+    │       └── DataSources
+    │           ├── MockContactDataSource.swift
+    │           └── CoreData
+    │               └── Wrappers
+    │                   └── MockCoreDataWrapper.swift
     │── Presentation
     │   └── Contact
     │       ├── Create
