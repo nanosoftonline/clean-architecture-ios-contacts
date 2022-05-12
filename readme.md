@@ -1,4 +1,5 @@
 ### Clean Architecture: An iOS Project
+##### Accompanying Blog: https://nanosoft.co.za/blog/post/clean-architecture-ios
 
 By employing clean architecture, you can design applications with very low coupling and independent of technical implementation details. That way, the application becomes easy to maintain and flexible to change. Clean architecture allows us to create architectural boundaries between dependencies which allows components to be intrinsically testable.
 
@@ -94,5 +95,6 @@ We structure the application in the following way to show intent by file / folde
 
 ```
 
-We have our application and test bundle. We mirror our test bundle on the application bundle.
+ 
+
 
