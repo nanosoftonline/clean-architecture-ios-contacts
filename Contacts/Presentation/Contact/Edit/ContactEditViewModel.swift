@@ -2,35 +2,49 @@ import Foundation
 
 
 class ContactEditViewModel: ObservableObject{
-    private let updateContactUseCase: UpdateContactUseCaseProtocol
-    private let deleteContactUseCase: DeleteContactUseCaseProtocol
+    private let updateContact: UpdateContactUseCaseProtocol
+    private let getContact: GetContactUseCaseProtocol
     
-    init(updateContact: UpdateContactUseCaseProtocol, deleteContact: DeleteContactUseCaseProtocol){
-        self.updateContactUseCase = updateContact
-        self.deleteContactUseCase = deleteContact
+    init(
+        updateContact: UpdateContactUseCaseProtocol,
+        getContact: GetContactUseCaseProtocol
+    ){
+        self.updateContact = updateContact
+        self.getContact = getContact
     }
     
     @Published var errorMessage = ""
+    @Published var originalContact = ContactResponseModel()
     @Published var name = ""
+    @Published var showAlert = false
+    @Published var isLoading: Bool = false
     
     
-    func deleteContact(id: UUID) async{
-        let result = await self.deleteContactUseCase.execute(id)
+    func getContact(_ id:UUID) async{
+        self.isLoading = true
+        let result = await self.getContact.execute(id)
         switch result{
-        case .success(_):
+        case .success(let data):
             self.errorMessage = ""
+            self.name = data!.name
+            self.originalContact = data!
+            self.isLoading = false
         case .failure(_):
-            self.errorMessage = "Error Deleting Contact"
+            self.isLoading = false
+            self.errorMessage = "Error Fetching Contact"
         }
     }
     
-    func onNameChange(name: String){
-        self.name = name
+    
+    public var canSave: Bool {
+        get {
+            return (originalContact.name != self.name && !self.name.isEmpty)
+        }
     }
     
-    func updateContact(id: UUID) async{
+    func updateContact(_ id: UUID) async{
         let data = ContactRequestModel(name: self.name)
-        let result = await self.updateContactUseCase.execute(id: id, data: data)
+        let result = await self.updateContact.execute(id: id, data: data)
         switch result{
         case .success(_):
             self.errorMessage = ""

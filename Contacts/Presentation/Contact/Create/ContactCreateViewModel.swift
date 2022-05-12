@@ -10,12 +10,9 @@ class ContactCreateViewModel: ObservableObject{
     
     @Published var errorMessage = ""
     @Published var name = ""
+    @Published var showAlert = false
     
     
-    func onNameChange(name: String){
-        self.name = name
-    }
-
     
     func createContact() async{
         
@@ -27,6 +24,12 @@ class ContactCreateViewModel: ObservableObject{
             self.errorMessage = "Error Creating Contact"
         }
 
+    }
+    
+    public var canSave: Bool {
+        get {
+            return (!name.isEmpty);
+        }
     }
             
 }

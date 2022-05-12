@@ -5,11 +5,26 @@ import XCTest
 class ViewModelContactListTests: XCTestCase {
     var vm: ContactListViewModel!
     var mockGetContacts : MockGetAllContacts!
+    var mockDeleteContact: MockDeleteContact!
     
     override func setUp() {
         mockGetContacts = MockGetAllContacts()
-        vm = .init(getAllContacts: mockGetContacts)
+        mockDeleteContact = MockDeleteContact()
+        vm = .init(getAllContacts: mockGetContacts, deleteContact: mockDeleteContact)
         
+    }
+    
+    func test_deleteContact_should_return_success() async {
+        mockDeleteContact.executeResult = .success(true)
+        let id = UUID()
+        await vm.deleteContact(id)
+        XCTAssertEqual(mockDeleteContact.executeGotCalledWith, (id))
+    }
+    
+    func test_deleteContact_set_error_when_deleteContact_fails() async{
+        mockDeleteContact.executeResult = (.failure(ContactError.Get))
+        await vm.deleteContact(UUID())
+        XCTAssertEqual(vm.errorMessage, "Error Deleting Contact")
     }
     
     func test_should_set_contacts_with_data() async{

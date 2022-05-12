@@ -35,7 +35,14 @@
 		0817335428250ACA00818193 /* UpdateContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0817335328250ACA00818193 /* UpdateContact.swift */; };
 		0882E05C280E073700887728 /* ViewModelContactCreateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0882E05B280E073700887728 /* ViewModelContactCreateTests.swift */; };
 		0882E05F280E0D7900887728 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0882E05E280E0D7900887728 /* CustomError.swift */; };
+		088A5E64282CE7EA00C868A0 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A5E63282CE7EA00C868A0 /* AddButton.swift */; };
+		088A5E66282CE82100C868A0 /* ContactCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A5E65282CE82100C868A0 /* ContactCreateView.swift */; };
 		0898F513280DEC4E001B32E9 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0898F512280DEC4E001B32E9 /* Swinject */; };
+		08A6FD3B282C3F23009A4FB9 /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A6FD3A282C3F23009A4FB9 /* ContactListView.swift */; };
+		08A6FD3D282C4D78009A4FB9 /* ContactEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A6FD3C282C4D78009A4FB9 /* ContactEditView.swift */; };
+		08A6FD40282C5054009A4FB9 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A6FD3F282C5054009A4FB9 /* TextInput.swift */; };
+		08A6FD42282C5075009A4FB9 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A6FD41282C5075009A4FB9 /* BackButton.swift */; };
+		08A6FD44282C509C009A4FB9 /* SaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A6FD43282C509C009A4FB9 /* SaveButton.swift */; };
 		08D69B21280E037500B8ABA8 /* CreateContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D69B20280E037500B8ABA8 /* CreateContact.swift */; };
 		08E0B400280DED9900A24637 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E0B3FF280DED9900A24637 /* Resolver.swift */; };
 		08E0B402280DEDCC00A24637 /* IocContactainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E0B401280DEDCC00A24637 /* IocContactainer.swift */; };
@@ -99,6 +106,13 @@
 		0817335328250ACA00818193 /* UpdateContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateContact.swift; sourceTree = "<group>"; };
 		0882E05B280E073700887728 /* ViewModelContactCreateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelContactCreateTests.swift; sourceTree = "<group>"; };
 		0882E05E280E0D7900887728 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		088A5E63282CE7EA00C868A0 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		088A5E65282CE82100C868A0 /* ContactCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCreateView.swift; sourceTree = "<group>"; };
+		08A6FD3A282C3F23009A4FB9 /* ContactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
+		08A6FD3C282C4D78009A4FB9 /* ContactEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEditView.swift; sourceTree = "<group>"; };
+		08A6FD3F282C5054009A4FB9 /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+		08A6FD41282C5075009A4FB9 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		08A6FD43282C509C009A4FB9 /* SaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButton.swift; sourceTree = "<group>"; };
 		08D4BA732812784200A7A4F7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		08D69B20280E037500B8ABA8 /* CreateContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContact.swift; sourceTree = "<group>"; };
 		08E0B3FF280DED9900A24637 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
@@ -199,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				080488C5281344E5005C697E /* ContactEditViewModel.swift */,
+				08A6FD3C282C4D78009A4FB9 /* ContactEditView.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -306,6 +321,7 @@
 		0809955F280DDFC400FDC78D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				08A6FD3E282C5031009A4FB9 /* Components */,
 				08099578280DE71C00FDC78D /* Contact */,
 			);
 			path = Presentation;
@@ -395,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				0809957C280DE76B00FDC78D /* ContactCreateViewModel.swift */,
+				088A5E65282CE82100C868A0 /* ContactCreateView.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -403,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				08F2E9F02811927D006B892A /* ContactListViewModel.swift */,
+				08A6FD3A282C3F23009A4FB9 /* ContactListView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -439,6 +457,17 @@
 				0882E05E280E0D7900887728 /* CustomError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		08A6FD3E282C5031009A4FB9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				08A6FD43282C509C009A4FB9 /* SaveButton.swift */,
+				08A6FD3F282C5054009A4FB9 /* TextInput.swift */,
+				08A6FD41282C5075009A4FB9 /* BackButton.swift */,
+				088A5E63282CE7EA00C868A0 /* AddButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		08D4BA722812784200A7A4F7 /* Frameworks */ = {
@@ -625,7 +654,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08099557280DDB2C00FDC78D /* Build configuration list for PBXNativeTarget "ContactsTests" */;
 			buildPhases = (
-				3D431FC6290C35CA5543170D /* Generate Mockingbird Mocks */,
 				0809953C280DDB2C00FDC78D /* Sources */,
 				0809953D280DDB2C00FDC78D /* Frameworks */,
 				0809953E280DDB2C00FDC78D /* Resources */,
@@ -700,25 +728,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3D431FC6290C35CA5543170D /* Generate Mockingbird Mocks */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Generate Mockingbird Mocks";
-			outputPaths = (
-				"$(SRCROOT)/MockingbirdMocks/ContactsTests-ContactsMocks.generated.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -eu\n\n# Prevent Xcode 13 from running this script while indexing.\n[[ \"${ACTION}\" == \"indexbuild\" ]] && exit 0\n\n\"/Volumes/SSD/developer/Xcode/DerivedData/Contacts-bftyyzvbapskucgpajgfqvfdmssl/SourcePackages/checkouts/mockingbird/mockingbird\" generate --targets \"Contacts\" --outputs \"${SRCROOT}/MockingbirdMocks/ContactsTests-ContactsMocks.generated.swift\"";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		08099527280DDB2900FDC78D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -730,6 +739,7 @@
 				0809956A280DE32E00FDC78D /* Contact.swift in Sources */,
 				0882E05F280E0D7900887728 /* CustomError.swift in Sources */,
 				08099538280DDB2C00FDC78D /* Persistence.swift in Sources */,
+				088A5E66282CE82100C868A0 /* ContactCreateView.swift in Sources */,
 				08FFEE8F282BE4A50011DE72 /* DeleteContact.swift in Sources */,
 				08099531280DDB2900FDC78D /* ContentView.swift in Sources */,
 				0817335428250ACA00818193 /* UpdateContact.swift in Sources */,
@@ -742,14 +752,20 @@
 				0809952F280DDB2900FDC78D /* ContactsApp.swift in Sources */,
 				08099572280DE58900FDC78D /* GetContactUseCaseProtocol.swift in Sources */,
 				0809956C280DE44500FDC78D /* GetAllContactsUseCaseProtocol.swift in Sources */,
+				08A6FD40282C5054009A4FB9 /* TextInput.swift in Sources */,
 				08099570280DE55400FDC78D /* DeleteContactUseCaseProtocol.swift in Sources */,
+				08A6FD3B282C3F23009A4FB9 /* ContactListView.swift in Sources */,
 				0809957D280DE76B00FDC78D /* ContactCreateViewModel.swift in Sources */,
 				080488C6281344E5005C697E /* ContactEditViewModel.swift in Sources */,
 				08FFEE97282BFD2F0011DE72 /* GetOneContact.swift in Sources */,
+				08A6FD42282C5075009A4FB9 /* BackButton.swift in Sources */,
 				0809956E280DE4C000FDC78D /* CreateContactUseCaseProtocol.swift in Sources */,
 				08D69B21280E037500B8ABA8 /* CreateContact.swift in Sources */,
 				08FFEE93282BF9D30011DE72 /* GetAllContacts.swift in Sources */,
 				0809F406282A71C200C03D1A /* CoreDataWrapperProtocol.swift in Sources */,
+				088A5E64282CE7EA00C868A0 /* AddButton.swift in Sources */,
+				08A6FD44282C509C009A4FB9 /* SaveButton.swift in Sources */,
+				08A6FD3D282C4D78009A4FB9 /* ContactEditView.swift in Sources */,
 				08FFEE9C282C009E0011DE72 /* ContactRepository.swift in Sources */,
 				08099567280DE08700FDC78D /* ContactRepositoryProtocol.swift in Sources */,
 			);

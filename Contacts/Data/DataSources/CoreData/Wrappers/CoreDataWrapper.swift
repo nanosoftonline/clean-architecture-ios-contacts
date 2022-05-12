@@ -6,7 +6,7 @@ class CoreDataWrapper : CoreDataWrapperProtocol {
     
     init(){
         container = NSPersistentContainer(name: "Contact")
-        container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+      //  container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         container.loadPersistentStores { storeDescription, error in
             if let error = error {
                 print("Unresolved error \(error)")
@@ -35,12 +35,15 @@ class CoreDataWrapper : CoreDataWrapperProtocol {
     
     func getData(entityName: String, predicate: NSPredicate) throws -> [NSManagedObject] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = predicate
         let entities = try container.viewContext.fetch(fetchRequest)
         return entities
     }
     
     func getData(entityName: String, predicate: NSPredicate, limit: Int) throws -> [NSManagedObject] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = predicate
+        fetchRequest.fetchLimit = limit
         let entities = try container.viewContext.fetch(fetchRequest)
         return entities
     }
@@ -51,7 +54,8 @@ class CoreDataWrapper : CoreDataWrapperProtocol {
     
     
     func deleteEntity(entity: NSManagedObject) throws {
-        entity.prepareForDeletion()
+    
+        container.viewContext.delete(entity)
         try save()
     }
     
