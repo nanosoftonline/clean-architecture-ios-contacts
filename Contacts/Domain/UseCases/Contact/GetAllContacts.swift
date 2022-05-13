@@ -10,6 +10,5 @@ class GetAllContacts : GetAllContactsUseCaseProtocol{
     func execute() async -> Result<[ContactResponseModel], ContactError> {
         return await contactRepo.getContacts()
     }
-    
-    
+     
 }

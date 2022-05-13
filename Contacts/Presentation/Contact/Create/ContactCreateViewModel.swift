@@ -2,7 +2,7 @@ import Foundation
 
 
 class ContactCreateViewModel: ObservableObject{
-   private let createContactUseCase: CreateContactUseCaseProtocol
+    private let createContactUseCase: CreateContactUseCaseProtocol
     
     init(createContact: CreateContactUseCaseProtocol){
         self.createContactUseCase = createContact
@@ -23,13 +23,11 @@ class ContactCreateViewModel: ObservableObject{
         case .failure(_):
             self.errorMessage = "Error Creating Contact"
         }
-
+        
     }
     
-    public var canSave: Bool {
-        get {
-            return (!name.isEmpty);
-        }
+    var canSave: Bool {
+        return (!name.isEmpty);
     }
-            
+    
 }

@@ -36,10 +36,8 @@ class ContactEditViewModel: ObservableObject{
     }
     
     
-    public var canSave: Bool {
-        get {
-            return (originalContact.name != self.name && !self.name.isEmpty)
-        }
+    var canSave: Bool {
+        return (originalContact.name != self.name && !self.name.isEmpty)
     }
     
     func updateContact(_ id: UUID) async{
